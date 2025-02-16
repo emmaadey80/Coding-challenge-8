@@ -20,3 +20,27 @@ const calculateDiscount = function(price, discountRate) { // declaring function 
 
 calculateDiscount(100, 0.2); // Expected output: "Final Price: $80.00"
 calculateDiscount(250, 0.15); // Expected output: "Final Price: $212.50"
+
+// Task 3: Arrow Function
+console.log("\nTask 3- Arrow Function");
+
+const calculateServiceFee = (amount, serviceType) => {
+    let fee = 0;
+    
+    if (serviceType === "Premium") {
+      fee = amount * 0.15;
+    } else if (serviceType === "Standard") {
+      fee = amount * 0.10;
+    } else if (serviceType === "Basic") {
+      fee = amount * 0.05;
+    } else {
+      return "Invalid service type";
+    }
+    
+    return `Service Fee: $${fee.toFixed(2)}`;
+  };
+
+
+// Logging test data output
+console.log(calculateServiceFee(200, "Premium")); // Expected output: "Service Fee: $30.00"
+console.log(calculateServiceFee(500, "Standard")); // Expected output: "Service Fee: $50.00"
