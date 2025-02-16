@@ -24,14 +24,14 @@ calculateDiscount(250, 0.15); // Expected output: "Final Price: $212.50"
 // Task 3: Arrow Function
 console.log("\nTask 3- Arrow Function");
 
-const calculateServiceFee = (amount, serviceType) => {
+const calculateServiceFee = (amount, serviceType) => { // arrow function that applies fee
     let fee = 0;
     
-    if (serviceType === "Premium") {
+    if (serviceType === "Premium") { // if premium fee is 15%
       fee = amount * 0.15;
-    } else if (serviceType === "Standard") {
+    } else if (serviceType === "Standard") { // if standard fee is 10%
       fee = amount * 0.10;
-    } else if (serviceType === "Basic") {
+    } else if (serviceType === "Basic") { // if basic fee is 5%
       fee = amount * 0.05;
     } else {
       return "Invalid service type";
@@ -77,7 +77,7 @@ const calculateRentalCost = (days, carType, insurance = false) => { // function 
 // Task 5: Returning Values
 console.log("\nTask 5- Returning Values");
 
-function calculateLoanPayment(principal, rate, time) {
+function calculateLoanPayment(principal, rate, time) { //function to return total loan payment
     let totalPayment = principal + (principal * rate * time);
     console.log(`Total Payment: $${totalPayment.toFixed(2)}`);
 };
@@ -89,8 +89,8 @@ calculateLoanPayment(5000, 0.07, 3); // Expected output: "Total Payment: $6050.0
 // Task 6: Higher order functions
 console.log("\nTask 6- Higher Order Functions");
 
-let transactions = [1060, 3000, 18, 204, 4800];
-const filterLargeTransactions = (transactions, filterFunction) => {
+let transactions = [1060, 3000, 18, 204, 4800]; // array 'transactions'
+const filterLargeTransactions = (transactions, filterFunction) => { // higher order function to find transactions over $1000
     console.log(transactions.filter(filterFunction));
 }
 //logging test data output
@@ -99,9 +99,9 @@ filterLargeTransactions(transactions, amount => amount > 1000); // Expected outp
 // Task 7: Closures
 console.log("\nTask 7- Closures");
 
-const createCartTracker = ()  => {
+const createCartTracker = ()  => { //function create cart tracker
     let total = 0;
-    return function(amount) {
+    return function(amount) { // return another function to add items and maintain total
         total += amount;
         console.log(`Total Cart Value: $${total}`);
     };
@@ -111,3 +111,14 @@ const createCartTracker = ()  => {
 let cart = createCartTracker();
 cart(20); // Expected output: "Total Cart Value: $20"
 cart(35); // Expected output: "Total Cart Value: $55"
+
+// Task 8: Recursion in JavaScript
+console.log("\nTask 8- Recursion in JavaScript");
+
+function calculateSavings(years, amount) { // recursive function to project savings growth
+    if (years >=10) return amount;
+    return calculateSavings(years + 1, amount * 1.05); //Increase savings 5% until year 10
+}
+//test data
+console.log(`Projected Savings: $${calculateSavings(8, 1000).toFixed(2)}`); //Expected output: "Projected Savings: $1102.50"
+console.log(`Projected Savings: $${calculateSavings(5, 5000).toFixed(2)}`); //Expected output: "Projected Savings: $6381.41"
