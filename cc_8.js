@@ -74,3 +74,25 @@ const calculateRentalCost = (days, carType, insurance = false) => { // function 
   console.log(calculateRentalCost(3, "Economy", true)); // Expected output: "Total Rental Cost: $180"
   console.log(calculateRentalCost(5, "Luxury", false)); // Expected output: "Total Rental Cost: $500"
 
+// Task 5: Returning Values
+console.log("\nTask 5- Returning Values");
+
+function calculateLoanPayment(principal, rate, time) {
+    let totalPayment = principal + (principal * rate * time);
+    console.log(`Total Payment: $${totalPayment.toFixed(2)}`);
+};
+
+//Logging test data output
+calculateLoanPayment(1000, 0.05, 2); // Expected output: "Total Payment: $1100.00"
+calculateLoanPayment(5000, 0.07, 3); // Expected output: "Total Payment: $6050.00"
+
+// Task 6: Higher order functions
+console.log("\nTask 6- Higher Order Functions");
+
+let transactions = [1060, 3000, 18, 204, 4800];
+const filterLargeTransactions = (transactions, filterFunction) => {
+    console.log(transactions.filter(filterFunction));
+}
+//logging test data output
+filterLargeTransactions(transactions, amount => amount > 1000); // Expected output: [1060, 3000, 4800]
+
